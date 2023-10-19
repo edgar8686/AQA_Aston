@@ -1,6 +1,6 @@
-package org.example;
+package org.example.lesson1;
 
-public class Main {
+public class Lesson1 {
     public static void main(String[] args) {
         printThreeWords();
         checkSumSign();
