@@ -1,9 +1,8 @@
-package org.example;
+package org.example.lesson2;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class Main {
+public class Lesson2 {
     public static void main(String[] args) {
         printTrue(10, 11);
         printNumber(-123);
