@@ -25,4 +25,7 @@ public class Employee {
         System.out.println("Family: " + family + "," + " Name: " + firstName + "," + " Patronymic: " + patronymic + "," + " Post: " + post + "," + " Email: " + email + "," + " Phone number: " + phoneNumber + "," + " Salary: " + salary + "," + " Age: " + age + ".");
     }
 
+    public int getAge() {
+        return age;
+    }
 }

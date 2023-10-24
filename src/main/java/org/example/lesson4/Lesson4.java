@@ -10,10 +10,17 @@ public class Lesson4 {
         employees[2] = new Employee("Dudakova", "Anastasia", "Sergeevna", "Lawyer", "ana.gmail.com", "89320000894", 400000, 41);
         employees[3] = new Employee("Pushka", "Vladimir", "Kucovich", "Manager", "pushka.gmail.com", "89567890009", 360000, 35);
         employees[4] = new Employee("Lisin", "Samed", "Kirillovich", "QA Engineer", "samed.gmail.com", "89449090000", 200000, 25);
-        employees[0].printEmployee();
-        employees[1].printEmployee();
-        employees[2].printEmployee();
-        employees[3].printEmployee();
-        employees[4].printEmployee();
+        // 1 способ с помощью foreach вывести в консоль имя сотрудника старше 40
+        for (var employee : employees) {
+            if (employee.getAge() > 40) {
+                employee.printEmployee();
+            }
+        }
+        // 2 способ с помощью цикла вывести в консоль имя сотрудника старше 40
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getAge() > 40) {
+                employees[i].printEmployee();
+            }
+        }
     }
 }
