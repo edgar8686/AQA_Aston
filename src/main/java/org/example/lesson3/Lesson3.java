@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class Lesson3 {
     public static void main(String[] args) {
-        printTrue(10, 11);
+        //Задание 1
+        PrintTrue.printTrue(10, 11);
         printNumber(-123);
         printNumberTrue(3);
         printString("Привет!", 10);
@@ -16,16 +17,6 @@ public class Lesson3 {
         System.out.print(Arrays.toString(oneDimensionalArray(10,11)));
     }
 
-    //Задание 1
-    public static boolean printTrue(int a, int b) {
-        if (a + b >= 10 && a + b <= 20) {
-            System.out.println("true");
-            return true;
-        } else {
-            System.out.println("false");
-            return false;
-        }
-    }
 
     //Задание 2
     public static void printNumber(int a) {
