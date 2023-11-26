@@ -1,6 +1,6 @@
 package org.example.lesson_12;
 
-import org.testng.annotations.DataProvider;
+
 
 public class Factorial {
     public static long calculateFactorial(int n) throws IllegalArgumentException{
