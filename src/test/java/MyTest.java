@@ -9,7 +9,6 @@ public class MyTest {
     @MethodSource("org.example.lesson_12.FactorialData#factorialData")
     public void testCalculateFactorial(int input, long expectedFactorial) throws IllegalArgumentException {
         long actualFactorial = calculateFactorial(input);
-        System.out.println(input);
         assertEquals(expectedFactorial, actualFactorial,
                 "Факториал для входного значения " + input + " неверен");
     }
