@@ -2,7 +2,6 @@ package org.example.lesson_12;
 
 public class Factorial {
     public static long calculateFactorial(int n) throws IllegalArgumentException {
-        System.out.println();
         if (n < 0) {
             throw new IllegalArgumentException("Факториал определен только для неотрицательных чисел");
         }

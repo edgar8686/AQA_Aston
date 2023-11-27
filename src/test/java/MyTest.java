@@ -8,7 +8,6 @@ public class MyTest {
     @ParameterizedTest
     @MethodSource("org.example.lesson_12.FactorialData#factorialData")
     public void testCalculateFactorial(int input, long expectedFactorial) throws IllegalArgumentException {
-        System.out.println();
         long actualFactorial = calculateFactorial(input);
         System.out.println(input);
         assertEquals(expectedFactorial, actualFactorial,
