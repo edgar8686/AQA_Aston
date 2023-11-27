@@ -5,6 +5,7 @@ import java.util.stream.Stream;
 
 public class FactorialData {
     public static Stream<Arguments> factorialData() {
+        System.out.println();
         return Stream.of(
                 Arguments.of(0, 1),
                 Arguments.of(1, 1),
