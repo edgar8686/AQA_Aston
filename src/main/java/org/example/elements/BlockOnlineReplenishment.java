@@ -15,7 +15,12 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static io.qameta.allure.internal.shadowed.jackson.databind.type.LogicalType.Collection;
 
 public class BlockOnlineReplenishment extends Page {
     @FindBy(id = "cookie-agree")
@@ -56,6 +61,24 @@ public class BlockOnlineReplenishment extends Page {
     private WebElement connectionSum;
     @FindBy(css = "form[id='pay-connection'] button[type='submit']")
     private WebElement submit;
+    @FindBy(css = ".select__header")
+    private WebElement selectHeader;
+    @FindBy(xpath = "//p[@class='select__option'][normalize-space()='Услуги связи']")
+    private WebElement selectOption1;
+    @FindBy(xpath = "//p[@class='select__option'][normalize-space()='Домашний интернет']")
+    private WebElement selectOption2;
+    @FindBy(xpath = "//p[@class='select__option'][normalize-space()='Рассрочка']")
+    private WebElement selectOption3;
+    @FindBy(xpath = "//p[@class='select__option'][normalize-space()='Задолженность']")
+    private WebElement selectOption4;
+    @FindBy(xpath = "//span[@class='select__now'][contains(normalize-space(),'Услуги связи')]")
+    private WebElement selectOptionHeader1;
+    @FindBy(xpath = "//span[@class='select__now'][contains(normalize-space(),'Домашний интернет')]")
+    private WebElement selectOptionHeader2;
+    @FindBy(xpath = "//span[@class='select__now'][contains(normalize-space(),'Рассрочка')]")
+    private WebElement selectOptionHeader3;
+    @FindBy(xpath = "//span[@class='select__now'][contains(normalize-space(),'Задолженность')]")
+    private WebElement selectOptionHeader4;
     private final String phoneNumber = "(29)777-77-77";
     private final String sum = "100";
 
@@ -82,6 +105,15 @@ public class BlockOnlineReplenishment extends Page {
                 .sendKeys(getSum())
                 .pause(Duration.ofSeconds(1))
                 .click(submit)
+                .perform();
+    }
+
+    public void selectNow(WebElement selectOption) {
+        new Actions(getDriver())
+                .click(getSelectHeader())
+                .pause(Duration.ofSeconds(1))
+                .click(selectOption)
+                .pause(Duration.ofSeconds(1))
                 .perform();
     }
 
@@ -142,5 +174,26 @@ public class BlockOnlineReplenishment extends Page {
 
     public List<WebElement> getForm() {
         return form;
+    }
+
+    public WebElement getSelectHeader() {
+        return selectHeader;
+    }
+
+    public List<WebElement> getSelectOption() {
+        List<WebElement> webElements = new ArrayList<>();
+        webElements.add(selectOption1);
+        webElements.add(selectOption2);
+        webElements.add(selectOption3);
+        webElements.add(selectOption4);
+        return webElements;
+    }
+    public List<WebElement> getSelectOptionHeader() {
+        List<WebElement> webElements = new ArrayList<>();
+        webElements.add(selectOptionHeader1);
+        webElements.add(selectOptionHeader2);
+        webElements.add(selectOptionHeader3);
+        webElements.add(selectOptionHeader4);
+        return webElements;
     }
 }
