@@ -83,6 +83,9 @@ public class BlockOnlineReplenishment extends Page {
                 .pause(Duration.ofSeconds(1))
                 .click(submit)
                 .perform();
+        for (var element : getForm()) {
+            fluentWaitLocators(ExpectedConditions.visibilityOf(element));
+        }
     }
 
     public BlockOnlineReplenishment linkClick() {
