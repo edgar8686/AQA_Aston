@@ -15,8 +15,6 @@ public class FormTest extends SeleniumConfig {
         acceptAllCookies();
         getBlock().onlineReplenishmentPage();
         getBlock().clickContinue();
-        //getDriver().switchTo().frame(getDriver().findElement(By.xpath("//div/iframe")));
-        //getDriver().switchTo().window(getDriver().getWindowHandle());
         for (WebElement element : getBlock().getForm()) {
             assertTrue(element.isDisplayed(), "Element is not displayed");
         }
