@@ -39,13 +39,17 @@ public class BlockOnlineReplenishment extends Page {
     })
     private List<WebElement> logos;
     @FindAll({
+            @FindBy(css = "p.header__payment-amount"),
             @FindBy(css = ".gpay-button black plain short ru"),
             @FindBy(css = ".ya-pay-button ya-pay-button_black"),
             @FindBy(css = ".input[formcontrolname='creditCard']"),
             @FindBy(css = ".content ng-tns-c47-4"),
             @FindBy(css = ".content ng-tns-c47-5"),
             @FindBy(css = ".content ng-tns-c47-3"),
-            @FindBy(css = ".switch-track ng-tns-c50-2")
+            @FindBy(css = ".switch-track ng-tns-c50-2"),
+            @FindBy(xpath = "//button[contains(text(), 'Оплатить 100.00 BYN')]"),
+            @FindBy(css = "img.ng-star-inserted[src='assets/images/payment-icons/card-types/visa-system.svg']"),
+            @FindBy(css = "img.ng-star-inserted[src='assets/images/payment-icons/card-types/mir-system.svg']")
     })
     private List<WebElement> form;
     @FindAll({
@@ -195,5 +199,17 @@ public class BlockOnlineReplenishment extends Page {
         webElements.add(selectOptionHeader3);
         webElements.add(selectOptionHeader4);
         return webElements;
+    }
+    public void getIFrame() {
+        List<WebElement> frames = getDriver().findElements(By.tagName("iframe"));
+        String targetFrameNamePart = "ya-frame";
+        for (WebElement frame : frames) {
+            String frameName = frame.getAttribute("name");
+            if (frameName != null && frameName.contains(targetFrameNamePart)) {
+                System.out.println("Switching to Frame: " + frameName);
+                getDriver().switchTo().frame(frame);
+                break;
+            }
+        }
     }
 }
