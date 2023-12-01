@@ -146,4 +146,17 @@ public class BlockOnlineReplenishment extends Page {
     public List<WebElement> getForm() {
         return form;
     }
+
+    public void getIFrame() {
+        List<WebElement> frames = getDriver().findElements(By.tagName("iframe"));
+        String targetFrameNamePart = "ya-frame";
+        for (WebElement frame : frames) {
+            String frameName = frame.getAttribute("name");
+            if (frameName != null && frameName.contains(targetFrameNamePart)) {
+                System.out.println("Switching to Frame: " + frameName);
+                getDriver().switchTo().frame(frame);
+                break;
+            }
+        }
+    }
 }
