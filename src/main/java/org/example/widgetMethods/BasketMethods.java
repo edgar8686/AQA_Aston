@@ -1,4 +1,4 @@
-package org.example.widget;
+package org.example.widgetMethods;
 
 import org.example.FluentWait;
 import org.example.elements.MainPage;

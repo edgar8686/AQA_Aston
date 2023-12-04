@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 public class AssertClass extends PageFactory {
-    private BasketPage basketPage = new BasketPage(getDriver());
+    private final BasketPage basketPage = new BasketPage(getDriver());
     public AssertClass(WebDriver driver) {
         super(driver);
     }

@@ -5,7 +5,7 @@ import io.qameta.allure.Allure;
 import org.example.assertClass.AssertClass;
 import org.example.elements.BasketPage;
 import org.example.elements.MainPage;
-import org.example.widget.BasketMethods;
+import org.example.widgetMethods.BasketMethods;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
