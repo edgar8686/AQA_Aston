@@ -1,14 +1,13 @@
 package org.example.page;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
-public class Page {
+public class PageFactory {
     private WebDriver driver;
 
-    public Page(WebDriver driver) {
+    public PageFactory(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this);
+        org.openqa.selenium.support.PageFactory.initElements(driver, this);
     }
 
     protected WebDriver getDriver() {

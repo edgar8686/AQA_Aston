@@ -2,25 +2,26 @@ package org.example.configuration;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
-import org.example.elements.BlockOnlineReplenishment;
+import org.example.assertClass.AssertClass;
+import org.example.elements.BasketPage;
+import org.example.elements.MainPage;
+import org.example.widget.BasketMethods;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 
-import java.net.MalformedURLException;
 import java.time.Duration;
 
 public class SeleniumConfig {
     private static WebDriver driver;
-    private final static String baseUrl = "http://mts.by/";
-    BlockOnlineReplenishment block = new BlockOnlineReplenishment(getDriver());
+    private final static String baseUrl = "https://www.wildberries.ru/";
+    private final BasketMethods basketMethods = new BasketMethods(getDriver());
+    private final MainPage mainPage = new MainPage(getDriver());
+    private final BasketPage basketPage = new BasketPage(getDriver());
+    private final AssertClass assertClass = new AssertClass(getDriver());
 
     @BeforeAll
     static void init() {
@@ -50,23 +51,25 @@ public class SeleniumConfig {
         }
     }
 
-    public void acceptAllCookies() {
-        try {
-            block.fluentWaitLocators(ExpectedConditions.elementToBeClickable(block.getCookieAgree()));
-            if (block.getCookieAgree().isDisplayed()) {
-                block.getCookieAgree().click();
-                System.out.println("All cookies accepted");
-            }
-        } catch (TimeoutException | NoSuchElementException e) {
-            System.out.println("All cookies have been accepted");
-        }
-    }
-
-    public BlockOnlineReplenishment getBlock() {
-        return block;
-    }
 
     public static WebDriver getDriver() {
         return driver;
+    }
+
+    public BasketMethods getBasket() {
+        return basketMethods;
+    }
+
+
+    public MainPage getMainPage() {
+        return mainPage;
+    }
+
+    public BasketPage getBasketPage() {
+        return basketPage;
+    }
+
+    public AssertClass getAssertClass() {
+        return assertClass;
     }
 }
