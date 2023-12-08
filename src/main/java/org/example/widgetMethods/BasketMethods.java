@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+
 import java.time.Duration;
 
 public class BasketMethods extends PageFactory {
@@ -20,12 +21,12 @@ public class BasketMethods extends PageFactory {
         super(driver);
     }
 
-    public BasketMethods addInBasket(WebElement product) {
+    public BasketMethods addInBasket(WebElement product, WebElement basketButton) {
         Actions actions = new Actions(getDriver());
 
         actions.moveToElement(product)
                 .pause(Duration.ofSeconds(1))
-                .click(mainPage.getBasketWidget())
+                .click(basketButton)
                 .pause(Duration.ofSeconds(1))
                 .perform();
         return this;
@@ -52,6 +53,18 @@ public class BasketMethods extends PageFactory {
         fluentWait.fluentWaitLocators(ExpectedConditions.visibilityOf(scrollToElement));
 
         ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", scrollToElement);
+        return this;
+    }
+
+    public BasketMethods deleteLine() {
+        Actions actions = new Actions(getDriver());
+        actions.click(mainPage.getSearchInput())
+                .sendKeys(Keys.END)
+                .keyDown(Keys.SHIFT)
+                .sendKeys(Keys.HOME)
+                .keyUp(Keys.SHIFT)
+                .sendKeys(Keys.DELETE)
+                .perform();
         return this;
     }
 }

@@ -11,9 +11,13 @@ public class AssertClass extends PageFactory {
         super(driver);
     }
     public void assertBasket() {
-        Assertions.assertTrue(basketPage.getProductName().isDisplayed());
+        Assertions.assertTrue(basketPage.getProductPhoneName().isDisplayed());
         Assertions.assertTrue(basketPage.getPricePhone().isDisplayed());
         Assertions.assertTrue(basketPage.getTotalAmount().isDisplayed());
         Assertions.assertTrue(basketPage.getQuantity().isDisplayed());
+        Assertions.assertTrue(basketPage.getPriceLaptop().isDisplayed());
+        Assertions.assertTrue(basketPage.getPriceToy().isDisplayed());
+        Assertions.assertTrue(basketPage.getProductLaptopName().isDisplayed());
+        Assertions.assertTrue(basketPage.getProductToyName().isDisplayed());
     }
 }
