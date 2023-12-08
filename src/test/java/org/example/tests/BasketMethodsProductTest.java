@@ -4,9 +4,6 @@ import org.example.configuration.SeleniumConfig;
 import org.junit.jupiter.api.Test;
 
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-
 public class BasketMethodsProductTest extends SeleniumConfig {
     @Test
     void basketProductTest() {
