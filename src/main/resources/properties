@@ -1,0 +1,3 @@
+base_url=https://postman-echo.com/
+cookie=sails.sid=s%3A7zuw0zt2nV0xKou-vpm3P49LY5Fhf_9J.FO7L5VmazL7s15skj4TQwnamg9BGrz%2BRKZZLUJETifg
+name=This is expected to be sent back as part of response body.
