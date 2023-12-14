@@ -3,7 +3,9 @@ package org.example.lesson_17.elementPage;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.example.lesson_17.FactoryInit;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 
@@ -21,8 +23,12 @@ public class ElementPage extends FactoryInit {
     }
 
     public void updateTextResultLocator(String newText) {
-        String updatedXpath = String.format("//*[@text='%s']", newText);
-        textResult = getAndroidDriver().findElement(By.xpath(updatedXpath));
+        try {
+            String updatedXpath = String.format("//*[@text='%s']", newText);
+            textResult = getAndroidDriver().findElement(By.xpath(updatedXpath));
+        } catch (NoSuchElementException e) {
+            Assertions.fail("Элемент с текстом '" + newText + "' не был найден");
+        }
     }
 
     public WebElement getTextResult() {
