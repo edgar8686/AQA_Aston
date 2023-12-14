@@ -25,9 +25,9 @@ dependencies {
     implementation("io.qameta.allure:allure-java-commons:2.20.1")
     implementation("io.qameta.allure:allure-commandline:2.20.1")
     testImplementation("io.qameta.allure:allure-assertj:2.20.1")
-    testImplementation("io.qameta.allure:allure-selenide:2.20.1")
-    implementation("com.opencsv:opencsv:5.7.1")
     runtimeOnly("org.aspectj:aspectjweaver:1.9.19")
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'io.appium:java-client:8.5.1'
 }
 
 tasks.test {
